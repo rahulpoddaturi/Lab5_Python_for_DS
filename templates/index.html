@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Please enter details to get estimated price </title>
+</head>
+<body>
+    <div class="hero-image">
+      <div class="hero-text">
+          <h1 style="font-size:50px">Used Car Price Predictor</h1>
+         <br><br><h3>{{ prediction_text }}</h3>
+      </div>
+    </div>
+
+    <form action="{{ url_for('predict')}}" method="POST">
+        <h2>Enter Car Details: </h2>
+        <h3>Age of the car(In years)</h3>
+        <input id="first" name="Age_Of_The_Car" type="number ">
+        <h3>Present Showroom Price(In lakhs)</h3><br><input id="second" name="Present_Price" required="required">
+        <h3>Kilometers Driven</h3><input id="third" name="Kms_Driven" required="required">
+        <h3>Owner Type (0/1/3)</h3><br><input id="fourth" name="Owner" required="required">
+        <h3>Fuel type</h3><br><select name="Fuel_Type" id="fuel" required="required">
+            <option value="2">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="0">CNG</option>
+        </select>
+        <h3>Seller Type</h3><br><select name="Seller_Type" id="resea" required="required">
+            <option value="1">Dealer</option>
+            <option value="0">Individual</option>
+        </select>
+        <h3>Transmission type</h3><br><select name="Transmission" id="research" required="required">
+            <option value="1">Manual Car</option>
+            <option value="0">Automatic Car</option>
+        </select>
+        <br><br><button id="sub" type="submit ">Predict Selling Price</button>
+        <br>
+    </form>
+</body>
+</html>
